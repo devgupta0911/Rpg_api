@@ -83,12 +83,17 @@ namespace Rpg_api.Models
         [Column(TypeName = "VARCHAR")]
         [StringLength(50)]
         public string? ModifiedBy { get; set; }
-
-        
+                
         [Column(TypeName = "DateTime2")]
         public DateTime? ModifiedDate { get; set; }
 
         [Required]
-        public bool DeletedFlag { get; set; }
+        public int DeletedFlag { get; set; }
+
+        [NotMapped]
+        public bool DeletedFlagbool
+        {
+            get { return (DeletedFlag == 1); }
+        }
     }
 }

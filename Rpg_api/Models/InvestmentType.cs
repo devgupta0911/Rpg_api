@@ -24,6 +24,11 @@ namespace Rpg_api.Models
         public DateTime? ModifiedDate { get; set; }
 
         [Required]
-        public bool DeletedFlag { get; set; }
+        public int DeletedFlag { get; set; }
+
+        [NotMapped]
+        public bool DeletedFlagbool {
+            get { return (DeletedFlag == 1); } 
+        }
     }
 }

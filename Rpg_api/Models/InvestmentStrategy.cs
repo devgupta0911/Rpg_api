@@ -20,7 +20,7 @@ namespace Rpg_api.Models
         [Required]
         [Column(TypeName = "VARCHAR")]
         [StringLength(6)]
-        public string AccountId { get; set; }= null!;
+        public string AccountID { get; set; }= null!;
 
         [Required]
         [Column(TypeName = "VARCHAR")]
@@ -43,15 +43,13 @@ namespace Rpg_api.Models
         public DateTime? ModifiedDate { get; set; }
 
         [Required]
-        public bool DeletedFlag { get; set; }
+        public int DeletedFlag { get; set; }
 
-
-
-
-
-
-
-
+        [NotMapped]
+        public bool DeletedFlagbool
+        {
+            get { return (DeletedFlag == 1); }
+        }
 
     }
 }
